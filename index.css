@@ -2,7 +2,28 @@ body {
   text-align: justify;
   background-color: wheat;
 }
-h1 {
-  margin: 0;
+#focim {
   font-size: 5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#nyugati_cim {
+  font-size: 3rem;
+  float: left;
+}
+
+#keleti_cim {
+  font-size: 3rem;
+  float: right;
+}
+#deli_cim {
+  margin-top: 35%;
+  font-size: 3rem;
+  vertical-align: middle;
+  text-align: center;
+}
+a {
+  color: black;
+  text-decoration: none;
 }
