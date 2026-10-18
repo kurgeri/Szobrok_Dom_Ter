@@ -85,32 +85,32 @@ kiirHozzaad();
 }
 function ugyanaz_e(adat)
 {
+  let ugyanaz = false;
 for(let i = 0 ; i < Object.keys(szobrok.Nyugati).length; i++)
 {
 if(adat == szobrok.Nyugati[i])
 {
-  return true;
+  ugyanaz = true;
 }
-else{return false;}
 }
 for(let i = 0 ; i < Object.keys(szobrok.Keleti).length; i++)
 {
 if(adat == szobrok.Keleti[i])
 {
-  return true;
+ ugyanaz = true;
 }
-else{return false;}
 }
 for(let i = 0 ; i < Object.keys(szobrok.Deli).length; i++)
 {
 if(adat == szobrok.Deli[i])
 {
-  return true;
-}
-else{return false;}
+ugyanaz = true;
 }
 
 }
+return ugyanaz;
+}
+
 function ures_e(adat)
 {
   if(adat == "")
@@ -137,6 +137,7 @@ else if(ures_e(modositott) == true)
   hiba_uz2.innerHTML = "HIBA! Nem lehet üres elem"
 }
 else{
+  hiba_uz.innerHTML = "";
 for(let i= 0; i < Object.keys(szobrok.Nyugati).length; i++)
 {
 
