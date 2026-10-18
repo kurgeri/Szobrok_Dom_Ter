@@ -11,6 +11,8 @@ let keleti_ki = document.getElementById("keleti")
 let deli_ki = document.getElementById("deli")
 
 let meglevo_szobrok = document.getElementById("meglevo_szobrok")
+let hiba_uz = document.getElementById("hiba")
+let hiba_uz2 = document.getElementById("hiba2")
 function kiirHozzaad()
 {
 //Frissités
@@ -38,6 +40,7 @@ deli_ki.innerHTML += `<p>${i+1}.    ${szobrok.Deli[i]}`
 meglevo_szobrok.innerHTML += `<option>${szobrok.Deli[i]}</option>`
 
 }
+console.log(szobrok);
 }
 kiirHozzaad();
 
@@ -46,7 +49,16 @@ uj_szobor.addEventListener("click", uj_adat)
 function uj_adat()
 {
 let uj_szobor_bevitel = document.getElementById("ujszobor").value
-
+if(ugyanaz_e(uj_szobor_bevitel) == true)
+{
+hiba_uz.innerHTML = "HIBA! Nem lehet két egyforma szobor"
+}
+else if(ures_e(uj_szobor_bevitel) == true)
+{
+  hiba_uz.innerHTML = "HIBA! Nem lehet üres elem"
+}
+else{
+hiba_uz.innerHTML = "";
 let irany = document.getElementById("irany").value
 switch(irany)
 {
@@ -68,7 +80,46 @@ document.getElementById("ujszobor").value = ""
 
 
 kiirHozzaad();
+}
 
+}
+function ugyanaz_e(adat)
+{
+for(let i = 0 ; i < Object.keys(szobrok.Nyugati).length; i++)
+{
+if(adat == szobrok.Nyugati[i])
+{
+  return true;
+}
+else{return false;}
+}
+for(let i = 0 ; i < Object.keys(szobrok.Keleti).length; i++)
+{
+if(adat == szobrok.Keleti[i])
+{
+  return true;
+}
+else{return false;}
+}
+for(let i = 0 ; i < Object.keys(szobrok.Deli).length; i++)
+{
+if(adat == szobrok.Deli[i])
+{
+  return true;
+}
+else{return false;}
+}
+
+}
+function ures_e(adat)
+{
+  if(adat == "")
+  {
+    return true
+  }
+  else{
+    return false;
+  }
 }
 
 let szobor_modositas = document.getElementById("modositas")
@@ -77,7 +128,15 @@ szobor_modositas.addEventListener("click", modositas)
 function modositas()
 {
   let modositott = document.getElementById("modosit").value
-    console.log(meglevo_szobrok.value)
+  if(ugyanaz_e(modositott) == true)
+{
+hiba_uz2.innerHTML = "HIBA! Nem lehet két egyforma szobor"
+}
+else if(ures_e(modositott) == true)
+{
+  hiba_uz2.innerHTML = "HIBA! Nem lehet üres elem"
+}
+else{
 for(let i= 0; i < Object.keys(szobrok.Nyugati).length; i++)
 {
 
@@ -107,20 +166,31 @@ if(szobrok.Deli[i] == meglevo_szobrok.value)
 document.getElementById("modosit").value = ""
 kiirHozzaad()
 }
+}
+function ujraIndexel(object) {
+  let elemek = Object.values(object);
+  let ujObject = {};
+  for (let i = 0; i < elemek.length; i++) {
+    ujObject[i] = elemek[i]; 
+  }
+  console.log(elemek)
+  return ujObject;
+}
 let szobor_torles = document.getElementById("torles")
 szobor_torles.addEventListener("click", torles)
 function torles()
 {
-for(let i= 0; i < Object.keys(szobrok.Nyugati).length; i++)
+for(let i= 0; i <= Object.keys(szobrok.Nyugati).length; i++)
 {
 
-if(szobrok.Nyugati[i] == meglevo_szobrok.value)
+if(szobrok.Nyugati[i] == meglevo_szobrok.value )
 {
    delete szobrok.Nyugati[i]
 
 }
 }
-for(let i= 0; i < Object.keys(szobrok.Keleti).length; i++)
+szobrok.Nyugati = ujraIndexel(szobrok.Nyugati);
+for(let i= 0; i <= Object.keys(szobrok.Keleti).length; i++)
 {
 if(szobrok.Keleti[i] == meglevo_szobrok.value)
 {
@@ -128,7 +198,8 @@ if(szobrok.Keleti[i] == meglevo_szobrok.value)
 
 }
 }
-for(let i= 0; i < Object.keys(szobrok.Deli).length; i++)
+szobrok.Keleti = ujraIndexel(szobrok.Keleti);
+for(let i= 0; i <= Object.keys(szobrok.Deli).length; i++)
 {
 if(szobrok.Deli[i] == meglevo_szobrok.value)
 {
@@ -137,6 +208,7 @@ if(szobrok.Deli[i] == meglevo_szobrok.value)
 }
 
 }
+szobrok.Deli = ujraIndexel(szobrok.Deli);
 kiirHozzaad();
 }
 
