@@ -10,12 +10,38 @@
   <body>
     <h1 id="focim">Emlékcsarnok</h1>
 
-    <p><a href="nyugati.html"><h1 id="nyugati_cim">Nyugati szobrok</h1></a> </p>
-    <p><a href="keleti.html"><h1 id="keleti_cim">Keleti szobrok</h1></a></p>
-   
-    <p>
+  <fieldset>  
+    
+<legend><p><h1>A nyughati árdákok szobrai:</h1>   </p></legend>
+<div id="nyugati"></div>
+ </fieldset>
 
-    <a href="deli.html"> <h1 id="deli_cim">Déli szobrok</h1></a>
-    </p>
+  <fieldset>  
+ <legend><p><h1>A keleti árdákok szobrai:</h1>   </p></legend>
+<div id="keleti"></div>
+ </fieldset>
+
+  <fieldset>  
+ <legend><p><h1>A déliárdákok szobrai:</h1>   </p></legend>
+<div id="deli"></div>
+ </fieldset>
+
+<fieldset>
+<legend><p><h1>A szobrok módosítása:</h1></p></legend>
+
+  <label for="irany">Melyik oldalt szeretné módosítani?
+ <select id="irany">
+            <option>Nyugati</option>
+            <option>Keleti</option>
+             <option>Déli</option>
+        </select>
+<p>Adja meg a szoboron szereplő ember nevét: <input type="text"></p>
+<p>Adja meg az adott ember foglalkozását/eseményt: <input type="text"></p>
+<button id="bekuld">Módosítás</button>
+<br>
+
+<button id="torles">Törlés</button>
+
+</fieldset>
   </body>
 </html>
