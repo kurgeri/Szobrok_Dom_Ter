@@ -25,23 +25,37 @@
  <legend><p><h1>A déliárdákok szobrai:</h1>   </p></legend>
 <div id="deli"></div>
  </fieldset>
-
+<div id="modositasok">
 <fieldset>
-<legend><p><h1>A szobrok módosítása:</h1></p></legend>
+<legend><p><h1>Új szobor hozzáadása:</h1></p></legend>
 
-  <label for="irany">Melyik oldalt szeretné módosítani?
+  <label for="irany">Melyik oldalt szeretné kibővíteni?
  <select id="irany">
             <option>Nyugati</option>
             <option>Keleti</option>
              <option>Déli</option>
         </select>
-<p>Adja meg a szoboron szereplő ember nevét: <input type="text"></p>
-<p>Adja meg az adott ember foglalkozását/eseményt: <input type="text"></p>
-<button id="bekuld">Módosítás</button>
-<br>
+<p>Adja meg a szoboron szereplő ember nevét és foglalkozását(Pl: Petőfi Sándor:Költő): <input type="text" id="ujszobor"></p>
 
+<button id="hozzaad">Hozzáadás</button>
+<br>
+</fieldset>
+
+<fieldset>
+<legend><p><h1>Meglévő szobor módosítása/törlése:</h1></p></legend>
+
+  <label for="meglevo_szobrok">Melyik szobrot szeretné módosítani?
+ <select id="meglevo_szobrok">
+            <option></option>
+ </select>
+<p><input type="text" ></p>
+<button id="modositas">Módosítás</button>
+<br>
 <button id="torles">Törlés</button>
 
+
 </fieldset>
+</div>
+
   </body>
 </html>
