@@ -11,31 +11,36 @@ let keleti_ki = document.getElementById("keleti")
 let deli_ki = document.getElementById("deli")
 
 let meglevo_szobrok = document.getElementById("meglevo_szobrok")
-function kiir()
+function kiirHozzaad()
 {
 //Frissités
 nyugati_ki.innerHTML = "";
 keleti_ki.innerHTML = ""; 
 deli_ki.innerHTML = "";
+meglevo_szobrok.innerHTML = "";
 
 for(let i = 0 ; i < Object.keys(szobrok.Nyugati).length; i++)
 {
 nyugati_ki.innerHTML += `<p>${i+1}.   ${szobrok.Nyugati[i]}`
 meglevo_szobrok.innerHTML += `<option>${szobrok.Nyugati[i]}</option>`
+
 }
 for(let i = 0 ; i < Object.keys(szobrok.Keleti).length; i++)
 {
 keleti_ki.innerHTML += `<p>${i+1}.    ${szobrok.Keleti[i]}`
 meglevo_szobrok.innerHTML += `<option>${szobrok.
   Keleti[i]}</option>`
+
 }
 for(let i = 0 ; i < Object.keys(szobrok.Deli).length; i++)
 {
 deli_ki.innerHTML += `<p>${i+1}.    ${szobrok.Deli[i]}`
 meglevo_szobrok.innerHTML += `<option>${szobrok.Deli[i]}</option>`
+
 }
 }
-kiir();
+kiirHozzaad();
+
 let uj_szobor = document.getElementById("hozzaad")
 uj_szobor.addEventListener("click", uj_adat)
 function uj_adat()
@@ -62,10 +67,76 @@ switch(irany)
 document.getElementById("ujszobor").value = ""
 
 
-kiir();
+kiirHozzaad();
 
 }
 
+let szobor_modositas = document.getElementById("modositas")
+szobor_modositas.addEventListener("click", modositas)
 
+function modositas()
+{
+  let modositott = document.getElementById("modosit").value
+    console.log(meglevo_szobrok.value)
+for(let i= 0; i < Object.keys(szobrok.Nyugati).length; i++)
+{
 
+if(szobrok.Nyugati[i] == meglevo_szobrok.value)
+{
+  szobrok.Nyugati[i] = modositott;
+
+}
+}
+for(let i= 0; i < Object.keys(szobrok.Keleti).length; i++)
+{
+if(szobrok.Keleti[i] == meglevo_szobrok.value)
+{
+  szobrok.Keleti[i] = modositott;
+
+}
+}
+for(let i= 0; i < Object.keys(szobrok.Deli).length; i++)
+{
+if(szobrok.Deli[i] == meglevo_szobrok.value)
+{
+  szobrok.Deli[i] = modositott;
+
+}
+
+}
+document.getElementById("modosit").value = ""
+kiirHozzaad()
+}
+let szobor_torles = document.getElementById("torles")
+szobor_torles.addEventListener("click", torles)
+function torles()
+{
+for(let i= 0; i < Object.keys(szobrok.Nyugati).length; i++)
+{
+
+if(szobrok.Nyugati[i] == meglevo_szobrok.value)
+{
+   delete szobrok.Nyugati[i]
+
+}
+}
+for(let i= 0; i < Object.keys(szobrok.Keleti).length; i++)
+{
+if(szobrok.Keleti[i] == meglevo_szobrok.value)
+{
+ delete  szobrok.Keleti[i]
+
+}
+}
+for(let i= 0; i < Object.keys(szobrok.Deli).length; i++)
+{
+if(szobrok.Deli[i] == meglevo_szobrok.value)
+{
+ delete szobrok.Deli[i]
+
+}
+
+}
+kiirHozzaad();
+}
 

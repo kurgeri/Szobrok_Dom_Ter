@@ -36,7 +36,7 @@
              <option>Déli</option>
         </select>
 <p>Adja meg a szoboron szereplő ember nevét és foglalkozását(Pl: Petőfi Sándor:Költő): <input type="text" id="ujszobor"></p>
-
+<div id="hiba"></div>
 <button id="hozzaad">Hozzáadás</button>
 <br>
 </fieldset>
@@ -44,11 +44,11 @@
 <fieldset>
 <legend><p><h1>Meglévő szobor módosítása/törlése:</h1></p></legend>
 
-  <label for="meglevo_szobrok">Melyik szobrot szeretné módosítani?
+  <label for="meglevo_szobrok">Melyik szobrot szeretné módosítani/törölni?
  <select id="meglevo_szobrok">
-            <option></option>
+      
  </select>
-<p><input type="text" ></p>
+<p>Adja meg az új szöveget: <input type="text" id="modosit"></p>
 <button id="modositas">Módosítás</button>
 <br>
 <button id="torles">Törlés</button>
